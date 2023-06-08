@@ -96,7 +96,8 @@ class MainActivity : AppCompatActivity() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
-        scan_button.setOnClickListener { if (isScanning) stopBleScan() else startBleScan() }
+        //scan_button.setOnClickListener { if (isScanning) stopBleScan() else startBleScan() }
+        startBleScan()
         setupRecyclerView()
     }
 
@@ -214,8 +215,11 @@ class MainActivity : AppCompatActivity() {
                 with(result.device) {
                     Timber.i("Found BLE device! Name: ${name ?: "Unnamed"}, address: $address")
                 }
-                scanResults.add(result)
-                scanResultAdapter.notifyItemInserted(scanResults.size - 1)
+                if(result.device.name!=null)
+                    if(result.device.name.startsWith("E-trail")){
+                        scanResults.add(result)
+                        scanResultAdapter.notifyItemInserted(scanResults.size - 1)
+                    }
             }
         }
 
