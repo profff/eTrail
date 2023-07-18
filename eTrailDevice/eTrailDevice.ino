@@ -48,8 +48,7 @@ void setup() {
                          CHARACTERISTIC_BATTERY_LEVEL_UUID,
                          BLECharacteristic::PROPERTY_READ);
   double s=scale_getValue();
-//  BLEDescriptor scaleDescriptor(DESCRIPTOR_SCALE_UUID, "scale");
-//  pScaleCharacteristic->addDescriptor(scaleDescriptor);                   
+               
   pScaleCharacteristic->setValue(s);
   int v=55;
   pBattCharacteristic->setValue(v);
@@ -73,5 +72,5 @@ void loop() {
   double s=scale_getValue();
   pScaleCharacteristic->setValue(s);
   pScaleCharacteristic->notify();
-  scale_loop();
+  //scale_loop();
 }

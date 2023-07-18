@@ -28,16 +28,14 @@ double scale_getValue() {
 
 void scale_loop() {
 
-//  scale.set_scale(calibration_factor); //Adjust to this calibration factor
-//
-//  Serial.print("SCALE : Reading: ");
-//  double u;
-//  u=scale.get_units(10);
-//  Serial.print(u, 5);
-//  Serial.print(" g"); //Change this to kg and re-adjust the calibration factor if you follow SI units like a sane person
-////  Serial.print(" calibration_factor: ");
-////  Serial.print(calibration_factor);
-//  Serial.println();
+ Serial.print("SCALE : Reading: ");
+ double u;
+ u=scale.get_units(10);
+ Serial.print(u, 5);
+ Serial.print(" g"); //Change this to kg and re-adjust the calibration factor if you follow SI units like a sane person
+//  Serial.print(" calibration_factor: ");
+//  Serial.print(calibration_factor);
+ Serial.println();
 //
 //  if(Serial.available())
 //  {
