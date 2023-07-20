@@ -31,43 +31,9 @@ double scale_getValue() {
 }
 
 void scale_loop() {
-
-<<<<<<< HEAD
- 
-
   Serial.print("A:");
   Serial.print(uA,1);  
-  Serial.print("AOffset:");
-  Serial.print(scale_20k.get_offset());  
   Serial.print(" B:");
   Serial.print(uB,1);
-  Serial.print("BOffset:");
-  Serial.print(scale_1k.get_offset());  
   Serial.println();
-=======
- Serial.print("SCALE : Reading: ");
- double u;
- u=scale.get_units(10);
- Serial.print(u, 5);
- Serial.print(" g"); //Change this to kg and re-adjust the calibration factor if you follow SI units like a sane person
-//  Serial.print(" calibration_factor: ");
-//  Serial.print(calibration_factor);
- Serial.println();
-//
-//  if(Serial.available())
-//  {
-//    char temp = Serial.read();
-//    if(temp == '+' || temp == 'a')
-//      calibration_factor += 50;
-//    else if(temp == '-' || temp == 'z')
-//      calibration_factor -= 50;
-//      else if (temp == 't')
-//        scale.tare();
-//        else if(temp == 'e')
-//        {
-//          double r=u/72.0f;
-//          scale.set_scale(r); 
-//        }
-//  }
->>>>>>> 3db95b27524fe6a3a0676757a379f5980b390934
 }

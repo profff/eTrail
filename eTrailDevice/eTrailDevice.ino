@@ -3,7 +3,7 @@
 #include <BLEUtils.h>
 #include <BLEServer.h>
 #include "scale.h"
-
+#include "motor.h"
 
 #define ETRAIL_SERVICE_UUID               "2277a1fd-eb40-474b-8e05-87b5c721aec0"
 #define CHARACTERISTIC_SCALE_UUID         "22770001-eb40-474b-8e05-22c7bb9543d3"
@@ -46,6 +46,7 @@ void setup() {
  // Serial.println("Starting BLE work!");
   
   scale_setup();
+  motor_setup();
   
   BLEDevice::init("E-trail");
   BLEServer *pServer = BLEDevice::createServer();
@@ -93,5 +94,9 @@ void loop() {
   double s=scale_getValue();
   pScaleCharacteristic->setValue(s);
   pScaleCharacteristic->notify();
-  //scale_loop();
+  uint8_t m=motor_getValue();
+  pMotorCharacteristic->setValue(&m,1);
+  pMotorCharacteristic->notify();
+  scale_loop();
+  motor_loop();
 }
